@@ -1,4 +1,6 @@
-# RIS-FL
+# RIS-Assisted Over-the-Air Federated Learning: Simulation and Reproduction
+
+(Reconfigurable Intelligent Surface Assisted Over-the-Air Federated Learning: Simulation and Reproduction)
 
 This is the simulation code package for the following paper:
 
