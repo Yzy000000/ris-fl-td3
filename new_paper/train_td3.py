@@ -92,7 +92,14 @@ def train(episodes: int = 10, max_steps: int = 50, seed: int = 0):
     state_dim = 2 * K + 1
     action_dim = K + K + M
 
-    agent = TD3Agent(state_dim=state_dim, action_dim=action_dim, device='cpu')
+    # auto-select device: use CUDA if available
+    try:
+        import torch as _torch
+        device_str = 'cuda' if _torch.cuda.is_available() else 'cpu'
+    except Exception:
+        device_str = 'cpu'
+    print(f"Using device: {device_str}")
+    agent = TD3Agent(state_dim=state_dim, action_dim=action_dim, device=device_str)
 
     total_rewards = []
     delay_stats = []
